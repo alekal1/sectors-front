@@ -1,0 +1,85 @@
+<div class="form-container">
+    <form class="main-form" [formGroup]="form">
+        <mat-form-field appearance="fill">
+            <mat-label>First name</mat-label>
+            <input formControlName="name" matInput required>
+            <mat-error>Name should contant only letters</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Primary sector</mat-label>
+            <mat-select #sectorValue
+                        required
+                        (selectionChange)="filterTopSectors()"
+                        [(ngModel)]="primarySelect"
+                        [ngModelOptions]="{standalone: true}">
+                <mat-option
+                    *ngFor="let sector of primaryLevelSectors"
+                    [value]="sector.id">
+                    {{sector.name}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="fill" *ngIf="!isEmpty(primarySelect)">
+            <mat-label>Top sector</mat-label>
+            <mat-select #sectorValue
+                        required
+                        multiple
+                        (selectionChange)="this.filterMidSectors()"
+                        [(ngModel)]="topSelect"
+                        [ngModelOptions]="{standalone: true}">
+                <mat-option
+                    *ngFor="let sector of topLevelSectors"
+                    [value]="sector.id">
+                    {{sector.name}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <div class="hint">
+            <mat-hint *ngIf="isEmpty(midLevelSectors) && !isEmpty(topSelect)">No middle sectors for choosen top sector(s).</mat-hint>
+        </div>
+        <mat-form-field appearance="fill" *ngIf="!isEmpty(topSelect) && !isEmpty(midLevelSectors)">
+            <mat-label>Mid sector</mat-label>
+            <mat-select #sectorValue
+                        multiple
+                        (selectionChange)="filterLowSectors()"
+                        [(ngModel)]="midSelect"
+                        [ngModelOptions]="{standalone: true}">
+                <mat-option
+                    *ngFor="let sector of midLevelSectors"
+                    [value]="sector.id">
+                    {{sector.name}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <div class="hint">
+            <mat-hint *ngIf="isEmpty(lowLevelSectors) && !isEmpty(midSelect)">No low sectors for choosen middle sector(s).</mat-hint>
+        </div>
+        <mat-form-field appearance="fill" *ngIf="!isEmpty(midSelect) && !isEmpty(lowLevelSectors)">
+            <mat-label>Low sector</mat-label>
+            <mat-select #sectorValue
+                        multiple
+                        [(ngModel)]="lowSelect"
+                        [ngModelOptions]="{standalone: true}">
+                <mat-option
+                    *ngFor="let sector of lowLevelSectors"
+                    [value]="sector.id">
+                    {{sector.name}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <div class="agree-terms">
+            <mat-checkbox formControlName=acceptTerms class="example-margin">Agree to terms</mat-checkbox>
+        </div>
+        <button class="submit-btn" mat-raised-button
+            color="primary"
+            type="submit"
+            [disabled]="!form.valid || isEmpty(primarySelect) || isEmpty(topSelect)"
+            (click)="addUser()">Add</button>
+    </form>
+    <button class="reset-btn"
+            mat-raised-button
+            color="primary"
+            (click)="resetFormData()">
+            Reset form
+    </button>
+</div>
