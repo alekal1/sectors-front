@@ -3,6 +3,7 @@
 This repository contains frontend for simple form application.
 Back-end repository could be founded [here](https://github.com/alekal1/sectors-back)
 * Made by Aleksandr Aleksandrov
+* Used IDE Visual Studio Code
 
 ## Technologies and dependencies
 
@@ -15,3 +16,4 @@ Back-end repository could be founded [here](https://github.com/alekal1/sectors-b
 2. Open project and paste in terminal `npm i`
 3. Run in terminal `ng serve` for a dev server
 4. Navigate to `http://localhost:4200/`
+
