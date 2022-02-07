@@ -1,27 +1,17 @@
-# SectorsFront
+# Sectors from - frontend
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.2.0.
+This repository contains frontend for simple form application.
+Back-end repository could be founded [here](https://github.com/alekal1/sectors-back)
+* Made by Aleksandr Aleksandrov
 
-## Development server
+## Technologies and dependencies
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+  * **Angular** - A platform for building mobile and desktop web applications.
+  * **Angular Material UI** - UI component infrastructure and Material Design components for mobile and desktop Angular web applications.
 
-## Code scaffolding
+## Installation
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+1. Clone this repository with your favorite IDE
+2. Open project and paste in terminal `npm i`
+3. Run in terminal `ng serve` for a dev server
+4. Navigate to `http://localhost:4200/`
